@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+httpx
+Jinja2
+aiofiles
+requests
+nest_asyncio

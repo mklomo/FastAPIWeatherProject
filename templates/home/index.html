@@ -1,0 +1,88 @@
+{% extends "shared/layout.html"%}
+
+{% block content %}
+
+<h1>
+    <span class="font-semi-bold">
+        Weather Service:
+    </span>
+    <span class="smaller">
+        A RESTful weather service
+    </span>
+</h1>
+<br>
+<br>
+<p class="lead">
+    The weather service.
+</p>
+<br>
+<h2>Endpoints</h2>
+<ul>
+    <li>
+        <p>
+            Current weather in a city
+        </p>
+        <a href="/api/weather/portland?country=US&state=OR&units=imperial" target="_blank">
+            <strong>
+                GET /api/weather/{city}?country={country}&state={state}
+            </strong>
+        </a>
+        <br>
+        <br>
+        <h3>
+            Parameters
+        </h3>
+        <ul>
+            <li>
+                <strong>
+                    Required:
+                </strong>
+                <span class="smaller">
+                    city={city} - the city you want to get the weather
+                </span>
+            </li>
+            <li>
+                <strong>
+                    Optional:
+                </strong>
+                <span class="smaller">
+                    state={state} - the state you want to get the weather (US only, two letter abbr)
+                </span>
+            </li>
+            <li>
+                <strong>
+                    Optional:
+                </strong>
+                <span class="smaller">
+                    country={country} - the country you want to get the weather - US if none specific (Two letter abbr)
+                </span>
+            </li>
+            <li>
+                <strong>
+                    Optional:
+                </strong>
+                <span class="smaller">
+                    units={units} - the units you want to get the weather {metric, imperial, standard}
+                </span>
+            </li>
+
+        </ul>
+
+    </li>
+</ul>
+<p>
+    {% if reported_events %}
+    <h2>
+        Recent weather events
+    </h2>
+    <ul>
+        {% for reported_event in reported_events %}
+        <li>
+            {{reported_event.location.city}}, {{reported_event.location.country}}: {{reported_event.description}}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</p>
+
+{% endblock %}

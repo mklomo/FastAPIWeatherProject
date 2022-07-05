@@ -1,2 +1,2 @@
 # FastAPIWeatherProject
-This project uses Fast API to create a Weather Checker API integrated with Open Weather.
+This project uses Fast API to create a restful Weather Service API integrated with Open Weather.
